@@ -1,0 +1,13 @@
+*.bak
+*.vhd
+*.dat
+*.dbs
+*.prw
+*.psm
+*.wlf
+*.txt
+transcript
+_info
+_vmake
+VGA_Control.v
+VGA_Control_tb.v
