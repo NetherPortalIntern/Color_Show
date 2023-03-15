@@ -1,5 +1,4 @@
 	//Parameters are taken from https://web.mit.edu/6.111/www/s2004/NEWKIT/vga.shtml, for the 60Hz
-	//The act
 	
 	//Parameters for front porch
 	parameter [PORCH_WIDTH-1:0] H_Front_Porch_RD      =  8'b00010000;   //16
@@ -17,14 +16,13 @@
     parameter [PORCH_WIDTH-1:0] H_Back_Porch_R10x7  =  8'b10100000;   //160
     parameter [PORCH_WIDTH-1:0] V_Back_Porch_R10x7  =  8'b00011101;   //29
 	
-	//Parameters for count active, where active means the display zone+front porch+back porch
-	//!!!!refacut
-	parameter [REZ_WIDTH-1:0] H_Count_Active_RD    =  11'b01010000000;  //640
-	parameter [REZ_WIDTH-1:0] V_Count_Active_RD    =  11'b00111100000;  //480
-	parameter [REZ_WIDTH-1:0] H_Count_Active_R8x6  =  11'b01100100000;  //800
-    parameter [REZ_WIDTH-1:0] V_Count_Active_R8x6  =  11'b01001011000;  //600
-	parameter [REZ_WIDTH-1:0] H_Count_Active_R10x7 =  11'b10000000000;  //1024
-	parameter [REZ_WIDTH-1:0] V_Count_Active_R10x7 =  11'b01100000000;  //768
+	//Parameters for sync pulse, where the actual parameter is the sync pulse - 2
+	parameter [PULSE_WIDTH-1:0] H_Sync_Pulse_RD    =  8'b01011110;  //96-2=94
+	parameter [PULSE_WIDTH-1:0] V_Sync_Pulse_RD    =  8'b00000000;  //2-2=0
+	parameter [PULSE_WIDTH-1:0] H_Sync_Pulse_R8x6  =  8'b01111110;  //128-2=126
+    parameter [PULSE_WIDTH-1:0] V_Sync_Pulse_R8x6  =  8'b00000010;  //4-2=2
+	parameter [PULSE_WIDTH-1:0] H_Sync_Pulse_R10x7 =  8'b10000110;  //136-2=134
+	parameter [PULSE_WIDTH-1:0] V_Sync_Pulse_R10x7 =  8'b00000100;  //6-2=4
 	
 	// Parameters for maximum counters, where maximum is the sum of the active+front porch+ back porch+ pulse width
     parameter [REZ_MAX_WIDTH-1:0] V_Count_Max_RD    =  12'b001000001100;   //524
