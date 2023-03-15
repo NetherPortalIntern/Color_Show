@@ -6,26 +6,25 @@
 //a specific resolution are changed according to https://web.mit.edu/6.111/www/s2004/NEWKIT/vga.shtml, 60Hz ones. 
 //
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-`define HIGH 1'b1
-`define LOW 1'b0
+
 module Counter
 	#(`include "Width_Parameters.v")
 	(input Clk,
 	input Rst,
-	input [REZ_WIDTH-1:0] Count_activ,
+	input [PULSE_WIDTH-1:0] Sync_pulse,
 	input [REZ_MAX_WIDTH-1:0] Count_max,
 	output  Counter_sync,
 	output  [REZ_MAX_WIDTH-1:0] CounterP);
 
-	reg								Sync_State_reg, Sync_State_nxt;	
-	reg		[REZ_MAX_WIDTH-1:0]  	Count_reg, Count_nxt;
+	reg							Sync_State_reg, Sync_State_nxt;	
+	reg	[REZ_MAX_WIDTH-1:0]  	Count_reg, Count_nxt;
 	
 	always@(posedge Clk or negedge Rst)
 	begin
-		if(Rst == `LOW)
+		if(Rst == 0)
 		begin
-			Sync_State_reg	<= `LOW;
-			Count_reg		<= `LOW;
+			Sync_State_reg	<= 0;
+			Count_reg		<= 0;
 		end
 		else
 		begin
@@ -36,18 +35,24 @@ module Counter
 	
 	always@*
 	begin
-		Sync_State_nxt = Sync_State_reg;
-		Count_nxt = Count_nxt;
+		Sync_State_nxt 	= Sync_State_reg;
+		Count_nxt 		= Count_reg;
 		
 		if(Count_reg < Count_max)
-			Count_nxt = Count_reg+1;
-		else
-			Count_nxt = `LOW;
+		begin
+			Count_nxt = Count_reg + 1;
 			
-		if(Count_reg >= Count_max-Count_activ)
-			Sync_State_nxt = `HIGH;
+			if(Count_reg > Sync_pulse)
+				Sync_State_nxt = 1;
+			else
+				Sync_State_nxt = 0;
+		end
 		else
-			Sync_State_nxt = `LOW;
+		begin 
+			//end of the row or column
+			Count_nxt 	   = 0;
+			Sync_State_nxt = 0;
+		end
 	end
 	
 	assign Counter_sync	= Sync_State_reg;
