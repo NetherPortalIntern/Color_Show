@@ -13,14 +13,15 @@ module Config_tb
 	reg [CONFIG_WIDTH-1:0] Addr;
 	reg [CONFIG_WIDTH-1:0] Data;
 	wire Load_config;
-	wire [PORCH_WIDTH-1:0]   H_front_porch;
-	wire [PORCH_WIDTH-1:0]   H_back_porch;
-	wire [PORCH_WIDTH-1:0]   V_front_porch;
-	wire [PORCH_WIDTH-1:0]   V_back_porch;
+	wire [HL_MARGIN_WIDTH-1:0] 	H_left_margin;
+	wire [HR_MARGIN_WIDTH-1:0] 	H_right_margin;
+	wire [VL_MARGIN_WIDTH-1:0] 	V_left_margin;
+	wire [VR_MARGIN_WIDTH-1:0] 	V_right_margin;
 	wire [REZ_MAX_WIDTH-1:0] H_count_max;
 	wire [PULSE_WIDTH-1:0]   H_sync_pulse;
 	wire [REZ_MAX_WIDTH-1:0] V_count_max;
 	wire [PULSE_WIDTH-1:0]   V_sync_pulse;
+	
 	
 	Config config1(	.Clk(Clk), 
 					.Rst(Rst),
@@ -28,10 +29,10 @@ module Config_tb
 					.Addr(Addr),
 					.Data(Data),
 					.Load_config(Load_config),
-					.H_front_porch(H_front_porch),
-					.H_back_porch(H_back_porch),
-					.V_front_porch(V_front_porch),
-					.V_back_porch(V_back_porch),
+					.H_left_margin(H_left_margin),
+					.H_right_margin(H_right_margin),
+					.V_left_margin(V_left_margin),
+					.V_right_margin(V_right_margin),
 					.H_count_max(H_count_max),
 					.H_sync_pulse(H_sync_pulse),
 					.V_count_max(V_count_max),

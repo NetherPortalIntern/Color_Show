@@ -20,22 +20,22 @@ module Config
 	input [CONFIG_WIDTH-1:0] Addr,
 	input [CONFIG_WIDTH-1:0] Data,
 	output Load_config,
-	output [PORCH_WIDTH-1:0]  H_front_porch,
-	output [PORCH_WIDTH-1:0]  H_back_porch,
-	output [PORCH_WIDTH-1:0]  V_front_porch,
-	output [PORCH_WIDTH-1:0]  V_back_porch,
-	output [REZ_MAX_WIDTH-1:0]  H_count_max,
-	output [PULSE_WIDTH-1:0]  H_sync_pulse,
-	output [REZ_MAX_WIDTH-1:0]  V_count_max,
-	output [PULSE_WIDTH-1:0]  V_sync_pulse);
+	output [PULSE_WIDTH-1:0]   		H_sync_pulse,
+	output [PULSE_WIDTH-1:0]   		V_sync_pulse,
+	output [REZ_MAX_WIDTH-1:0]  	H_count_max,
+	output [REZ_MAX_WIDTH-1:0]  	V_count_max,
+	output [HL_MARGIN_WIDTH-1:0] 	H_left_margin,
+	output [HR_MARGIN_WIDTH-1:0] 	H_right_margin,
+	output [VL_MARGIN_WIDTH-1:0] 	V_left_margin,
+	output [VR_MARGIN_WIDTH-1:0] 	V_right_margin);
 		
 	`include "Parameters.v"
 
 	reg 							Load_reg, Load_nxt;
-	reg		[PORCH_WIDTH-1:0]		H_Front_Porch_reg, H_Front_Porch_nxt;
-	reg 	[PORCH_WIDTH-1:0]		V_Front_Porch_reg, V_Front_Porch_nxt;
-	reg		[PORCH_WIDTH-1:0] 		H_Back_Porch_reg, H_Back_Porch_nxt;
-	reg		[PORCH_WIDTH-1:0] 		V_Back_Porch_reg, V_Back_Porch_nxt;
+	reg		[HL_MARGIN_WIDTH-1:0]		H_Left_Margin_reg, H_Left_Margin_nxt;
+	reg 	[VL_MARGIN_WIDTH-1:0]		V_Left_Margin_reg, V_Left_Margin_nxt;
+	reg		[HR_MARGIN_WIDTH-1:0] 		H_Right_Margin_reg, H_Right_Margin_nxt;
+	reg		[VR_MARGIN_WIDTH-1:0] 		V_Right_Margin_reg, V_Right_Margin_nxt;
 	reg     [PULSE_WIDTH-1:0]  		H_Sync_Pulse_reg, H_Sync_Pulse_nxt;
 	reg     [PULSE_WIDTH-1:0]  		V_Sync_Pulse_reg, V_Sync_Pulse_nxt;
 	reg     [REZ_MAX_WIDTH-1:0] 	H_Count_Max_reg, H_Count_Max_nxt;
@@ -46,10 +46,10 @@ module Config
 		if(Rst==0)
 		begin
 			Load_reg    		<= 1;
-			H_Front_Porch_reg   <= H_Front_Porch_RD;
-			V_Front_Porch_reg   <= V_Front_Porch_RD;
-			H_Back_Porch_reg    <= H_Back_Porch_RD;
-			V_Back_Porch_reg	<= V_Back_Porch_RD;
+			H_Left_Margin_reg   <= H_Left_Margin_RD;
+			V_Left_Margin_reg   <= V_Left_Margin_RD;
+			H_Right_Margin_reg  <= H_Right_Margin_RD;
+			V_Right_Margin_reg	<= V_Right_Margin_RD;
 			H_Sync_Pulse_reg  	<= H_Sync_Pulse_RD;
 			V_Sync_Pulse_reg  	<= V_Sync_Pulse_RD;
 			H_Count_Max_reg 	<= H_Count_Max_RD;
@@ -58,10 +58,10 @@ module Config
 		else
 		begin
 			Load_reg    		<= Load_nxt;
-			H_Front_Porch_reg   <= H_Front_Porch_nxt;
-			V_Front_Porch_reg   <= V_Front_Porch_nxt;
-			H_Back_Porch_reg    <= H_Back_Porch_nxt;
-			V_Back_Porch_reg	<= V_Back_Porch_nxt;
+			H_Left_Margin_reg   <= H_Left_Margin_nxt;
+			V_Left_Margin_reg   <= V_Left_Margin_nxt;
+			H_Right_Margin_reg  <= H_Right_Margin_nxt;
+			V_Right_Margin_reg	<= V_Right_Margin_nxt;
 			H_Sync_Pulse_reg  	<= H_Sync_Pulse_nxt;
 			V_Sync_Pulse_reg  	<= V_Sync_Pulse_nxt;
 			H_Count_Max_reg 	<= H_Count_Max_nxt;
@@ -77,10 +77,10 @@ module Config
 				`R6X4:
 				begin
 					//bring proper parameters and set de Load
-					H_Front_Porch_nxt   <= H_Front_Porch_RD;
-					V_Front_Porch_nxt   <= V_Front_Porch_RD;
-					H_Back_Porch_nxt    <= H_Back_Porch_RD;
-					V_Back_Porch_nxt	<= V_Back_Porch_RD;
+					H_Left_Margin_nxt   <= H_Left_Margin_RD;
+					V_Left_Margin_nxt   <= V_Left_Margin_RD;
+					H_Right_Margin_nxt  <= H_Right_Margin_RD;
+					V_Right_Margin_nxt	<= V_Right_Margin_RD;
 					H_Sync_Pulse_nxt  	<= H_Sync_Pulse_RD;
 					V_Sync_Pulse_nxt  	<= V_Sync_Pulse_RD;
 					H_Count_Max_nxt 	<= H_Count_Max_RD;
@@ -91,10 +91,10 @@ module Config
 				`R8X6:
 				begin
 					//bring proper parameters and set de Load 
-					H_Front_Porch_nxt 	= H_Back_Porch_R8x6;
-					V_Front_Porch_nxt	= V_Front_Porch_R8x6;
-					H_Back_Porch_nxt	= H_Back_Porch_R8x6;
-					V_Back_Porch_nxt 	= V_Back_Porch_R8x6;
+					H_Left_Margin_nxt 	= H_Left_Margin_R8x6;
+					V_Left_Margin_nxt	= V_Left_Margin_R8x6;
+					H_Right_Margin_nxt	= H_Right_Margin_R8x6;
+					V_Right_Margin_nxt 	= V_Right_Margin_R8x6;
 					H_Sync_Pulse_nxt 	= H_Sync_Pulse_R8x6; 
 					V_Sync_Pulse_nxt 	= V_Sync_Pulse_R8x6; 
 					H_Count_Max_nxt 	= H_Count_Max_R8x6;
@@ -105,10 +105,10 @@ module Config
 				`R10X7:
 				begin
 					//bring proper parameters and set de Load
-					H_Front_Porch_nxt 	= H_Back_Porch_R10x7;
-					V_Front_Porch_nxt	= V_Front_Porch_R10x7;
-					H_Back_Porch_nxt	= H_Back_Porch_R10x7;
-					V_Back_Porch_nxt 	= V_Back_Porch_R10x7;
+					H_Left_Margin_nxt 	= H_Left_Margin_R10x7;
+					V_Left_Margin_nxt	= V_Left_Margin_R10x7;
+					H_Right_Margin_nxt	= H_Right_Margin_R10x7;
+					V_Right_Margin_nxt 	= V_Right_Margin_R10x7;
 					H_Sync_Pulse_nxt 	= H_Sync_Pulse_R10x7; 
 					V_Sync_Pulse_nxt 	= V_Sync_Pulse_R10x7; 
 					H_Count_Max_nxt 	= H_Count_Max_R10x7;
@@ -119,10 +119,10 @@ module Config
 		end
 		else
 		begin
-			H_Front_Porch_nxt   <= H_Front_Porch_reg;
-			V_Front_Porch_nxt   <= V_Front_Porch_reg;
-			H_Back_Porch_nxt    <= H_Back_Porch_reg;
-			V_Back_Porch_nxt	<= V_Back_Porch_reg;
+			H_Left_Margin_nxt   <= H_Left_Margin_reg;
+			V_Left_Margin_nxt   <= V_Left_Margin_reg;
+			H_Right_Margin_nxt  <= H_Right_Margin_reg;
+			V_Right_Margin_nxt	<= V_Right_Margin_reg;
 			H_Sync_Pulse_nxt  	<= H_Sync_Pulse_reg;
 			V_Sync_Pulse_nxt  	<= V_Sync_Pulse_reg;
 			H_Count_Max_nxt 	<= H_Count_Max_reg;
@@ -135,15 +135,15 @@ module Config
 	end
 	
 	
-	assign Load_config   = Load_reg;
-	assign H_front_porch = H_Front_Porch_reg;
-	assign H_back_porch  = H_Back_Porch_reg;
-	assign V_front_porch = V_Front_Porch_reg;
-	assign V_back_porch  = V_Back_Porch_reg;
-	assign H_count_max   = H_Count_Max_reg;
-	assign H_sync_pulse  = H_Sync_Pulse_reg;
-	assign V_count_max   = V_Count_Max_reg;
-	assign V_sync_pulse  = V_Sync_Pulse_reg;
+	assign Load_config   	= Load_reg;
+	assign H_count_max   	= H_Count_Max_reg;
+	assign H_sync_pulse  	= H_Sync_Pulse_reg;
+	assign V_count_max   	= V_Count_Max_reg;
+	assign V_sync_pulse  	= V_Sync_Pulse_reg;
+	assign H_left_margin 	= H_Left_Margin_reg;
+	assign H_right_margin   = H_Right_Margin_reg;
+	assign V_left_margin 	= V_Left_Margin_reg;
+	assign V_right_margin  	= V_Right_Margin_reg;
 
 	
 	endmodule
