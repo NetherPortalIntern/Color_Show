@@ -5,6 +5,10 @@
 //When the configuration bus has a new configuration for the VGA_Control, the registers containing information for 
 //a specific resolution are changed according to https://web.mit.edu/6.111/www/s2004/NEWKIT/vga.shtml, 60Hz ones. 
 //
+//
+//	Expected Counter_sync output  ___+-------------+___+-------------+___+-------------+___+-------------+___...,
+//where the signal is low for the Sync_pulse time duration and after goes active until the CountP reach the 
+//Count_max value.
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 module Counter
@@ -21,7 +25,7 @@ module Counter
 	
 	always@(posedge Clk or negedge Rst)
 	begin
-		if(Rst == 0)
+		if(Rst)
 		begin
 			Sync_State_reg	<= 0;
 			Count_reg		<= 0;

@@ -1,9 +1,16 @@
 `timescale 1 ns/10 ps  
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 // Module Name:   Config  
-// 	This module provides parameters for the other modules that forms the VGA_Control module.
+//
+// 	This module provides parameters for the other modules that forms the VGA_Control module. Each configuration 
+//has it's own constants.
 //When the configuration bus has a new configuration for the VGA_Control, the registers containing information for 
 //a specific resolution are changed according to https://web.mit.edu/6.111/www/s2004/NEWKIT/vga.shtml, 60Hz ones. 
+//
+//	The parameters can be found in the Parameters.v file, also there are more details about them. 
+//	The Valid, Addr and Data inputs are the same as the C_valid, C_addr and C_data inputs for the VGA_Control.
+//	Load_config is a special output, it has a rol in the Couunters reset and also for the output of the VGA_Control
+//	C_rdy and is active only where the VGA_Control receive a new valid documentation. 
 //
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 `define R6X4  2'b00
@@ -13,7 +20,8 @@
 `define ACTIVE 1'b1
 
 module Config
-	#(`include "Width_Parameters.v")
+	#(`include "Width_Parameters.v",
+		`include "ParametersFin.v")
 	(input Clk,
 	input Rst,
 	input Valid,
@@ -29,7 +37,7 @@ module Config
 	output [VL_MARGIN_WIDTH-1:0] 	V_left_margin,
 	output [VR_MARGIN_WIDTH-1:0] 	V_right_margin);
 		
-	`include "Parameters.v"
+
 
 	reg 							Load_reg, Load_nxt;
 	reg		[HL_MARGIN_WIDTH-1:0]		H_Left_Margin_reg, H_Left_Margin_nxt;
@@ -43,7 +51,7 @@ module Config
 	
 	always@(posedge Clk or negedge Rst)
 	begin
-		if(Rst==0)
+		if(Rst)
 		begin
 			Load_reg    		<= 1;
 			H_Left_Margin_reg   <= H_Left_Margin_RD;
