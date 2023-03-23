@@ -1,4 +1,12 @@
 `timescale 1 ns/10 ps 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+// Module Name:   Assign_color
+// 
+// 	The sole role for this module is to decide when the Pixel Counter (CountP) reaches the display region (based
+//on parameters from the Config unit) and only then to transmit the color data which is the input for the 
+//VGA_Control. 
+//
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 module Assign_color
 	#(`include "Width_Parameters.v")
 	(input Clk,
@@ -15,24 +23,18 @@ module Assign_color
 	output [COLOR_WIDTH-1:0] 	Blue);
 	
 	reg   Active_reg, Active_nxt;
-	/*reg H_active_reg, H_active_nxt;
-	reg V_active_reg, V_active_nxt;*/
 
 	
 	always@(posedge Clk or negedge Rst)
 	begin
-		if(Rst == 0)
+		if(Rst)
 		begin
 			Active_reg   <= 0;
-			/*H_active_reg <= 0;
-			V_active_reg <= 0;*/
 			
 		end
 		else
 		begin
 			Active_reg   <= Active_nxt;
-			/*H_active_reg <= H_active_nxt;
-			V_active_reg <= V_active_nxt;*/
 		end
 	end
 	
@@ -42,20 +44,6 @@ module Assign_color
 			Active_nxt = 1;
 		else
 			Active_nxt = 0;	
-	
-		/*//testing the display region for the horizontal line
-		if(Count_h>=H_left_margin && Count_h<=H_right_margin)
-			H_active_nxt = 1;
-		else
-			H_active_nxt = 0;
-		
-		//testing the display region for the vertical column		
-		if(Count_v>=V_left_margin && Count_v<=V_right_margin)
-			V_active_nxt = 1;
-		else
-			V_active_nxt = 0;
-			
-		Active_nxt = H_active_reg && V_active_reg;*/
 		
 	end
 		

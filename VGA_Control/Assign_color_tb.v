@@ -1,4 +1,5 @@
 `timescale 1 ns/10 ps 
+//The teshbench for the Assign_color module
 
 module Assign_color_tb
 #(`include "Width_Parameters.v");
@@ -43,9 +44,9 @@ module Assign_color_tb
 				
 	initial
 	begin
-		Rst = 1'b0;
-		#RST_DURATION 
 		Rst = 1'b1;
+		#RST_DURATION 
+		Rst = 1'b0;
 	end
 	
 	

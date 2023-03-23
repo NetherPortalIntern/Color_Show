@@ -1,5 +1,5 @@
 `timescale 1 ns/10 ps 
-
+//The testbench for the Config module.
 module Config_tb
 	#(`include "Width_Parameters.v");
 	
@@ -47,9 +47,9 @@ module Config_tb
 				
 	initial
 	begin
-		Rst = 1'b0;
-		#RST_DURATION 
 		Rst = 1'b1;
+		#RST_DURATION 
+		Rst = 1'b0;
 	end
 	
 	initial
