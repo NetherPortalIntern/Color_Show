@@ -1,23 +1,25 @@
 //Parameters are taken from https://web.mit.edu/6.111/www/s2004/NEWKIT/vga.shtml, for the 60Hz
+//____________+------------------------------------------+
+//pulse_width |back porch   | active zone   | front porch|
 	
-	//Parameters for left margin, where left margin means front porch + sync pulse
-	parameter [VL_MARGIN_WIDTH-1:0] V_Left_Margin_RD      =  4'b1101,   	//11+  2= 13
-	parameter [VL_MARGIN_WIDTH-1:0] V_Left_Margin_R8x6    =  4'b0101,   	// 1+  4=  5
-    parameter [VL_MARGIN_WIDTH-1:0] V_Left_Margin_R10x7   =  4'b1001,   	// 3+  6=  9
+	//Parameters for left margin, where left margin means back porch + sync pulse
+	parameter [VL_MARGIN_WIDTH-1:0] V_Left_Margin_RD      =  6'b100001,   //31+2=33
+	parameter [VL_MARGIN_WIDTH-1:0] V_Left_Margin_R8x6    =  6'b011011,   //23+4=27
+    parameter [VL_MARGIN_WIDTH-1:0] V_Left_Margin_R10x7   =  6'b100011,   //29+6=35
 	
-	parameter [HL_MARGIN_WIDTH-1:0] H_Left_Margin_RD      =  8'b01110000,   //16+ 96=112
-    parameter [HL_MARGIN_WIDTH-1:0] H_Left_Margin_R8x6    =  8'b10101000,   //40+128=168
-    parameter [HL_MARGIN_WIDTH-1:0] H_Left_Margin_R10x7   =  8'b10100000,   //24+136=160
+	parameter [HL_MARGIN_WIDTH-1:0] H_Left_Margin_RD      =  9'b010010000,   // 48+ 96=144
+    parameter [HL_MARGIN_WIDTH-1:0] H_Left_Margin_R8x6    =  9'b011010100,   // 88+128=212
+    parameter [HL_MARGIN_WIDTH-1:0] H_Left_Margin_R10x7   =  9'b100101000,   //160+136=296
 
 	
-	//Parameters for right margin, where right margin means maximum counters - back porch (or sync pulse + front porch + acive) 
-	parameter [VR_MARGIN_WIDTH-1:0] V_Right_Margin_RD     =  10'b0111101101,   // 524- 31=755
-	parameter [VR_MARGIN_WIDTH-1:0] V_Right_Margin_R8x6   =  10'b1001011101,	// 628- 23=605
-    parameter [VR_MARGIN_WIDTH-1:0] V_Right_Margin_R10x7  =  10'b1100001001,   // 806- 29=777
+	//Parameters for right margin, where right margin means maximum counters - front porch (or sync pulse + back porch + acive) 
+	parameter [VR_MARGIN_WIDTH-1:0] V_Right_Margin_RD     =  10'b1000000001,    //524-11=513
+	parameter [VR_MARGIN_WIDTH-1:0] V_Right_Margin_R8x6   =  10'b1001110011,	//628- 1=627
+    parameter [VR_MARGIN_WIDTH-1:0] V_Right_Margin_R10x7  =  10'b1100100011,   // 806- 3=803
 
-	parameter [HR_MARGIN_WIDTH-1:0] H_Right_Margin_RD     =  11'b01011110000,   // 800- 48=752
-    parameter [HR_MARGIN_WIDTH-1:0] H_Right_Margin_R8x6   =  11'b01111001000,   //1056- 88=968
-    parameter [HR_MARGIN_WIDTH-1:0] H_Right_Margin_R10x7  =  11'b10010100000,   //1344-160=1184
+	parameter [HR_MARGIN_WIDTH-1:0] H_Right_Margin_RD     =  11'b01100010000,   // 800-16= 784
+    parameter [HR_MARGIN_WIDTH-1:0] H_Right_Margin_R8x6   =  11'b01111111000,   //1056-40=1016
+    parameter [HR_MARGIN_WIDTH-1:0] H_Right_Margin_R10x7  =  11'b10100101000,   //1344-24=1320
 
 	
 	//Parameters for sync pulse, where the actual parameter is the sync pulse - 2

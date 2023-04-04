@@ -16,12 +16,12 @@
 `define R6X4  2'b00
 `define R8X6  2'b01
 `define R10X7 2'b10
-`define VGA_ADRESS 2'b10
 `define ACTIVE 1'b1
 
 module Config
 	#(`include "Width_Parameters.v",
-		`include "ParametersFin.v")
+	  `include "ParametersFin.v",
+	  `include "Addr_Parameters.v")
 	(input Clk,
 	input Rst,
 	input Valid,
@@ -79,7 +79,7 @@ module Config
 	
 	always @*
 	begin
-		if(Addr ==`VGA_ADRESS && Valid == `ACTIVE)
+		if(Addr == ADDR_VGA_CONFIG && Valid == `ACTIVE)
 		begin	
 			case (Data)	
 				`R6X4:
