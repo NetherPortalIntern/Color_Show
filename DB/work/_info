@@ -1,0 +1,56 @@
+m255
+K3
+13
+cModel Technology
+dC:\Users\Denisa\Desktop\EtherGate\COLOR SHOW\CD
+vDB
+InI`d3@><X@R8kT^6j?^QL3
+VKfMW5EkPk37c`Q>DdhCG00
+Z0 dC:\Users\Denisa\Desktop\EtherGate\COLOR SHOW\DB
+w1680443245
+8C:/Users/Denisa/Desktop/EtherGate/COLOR SHOW/DB/DB.v
+FC:/Users/Denisa/Desktop/EtherGate/COLOR SHOW/DB/DB.v
+L0 3
+Z1 OV;L;6.5b;42
+r1
+31
+Z2 !s102 -nocovercells
+Z3 o-work work -nocovercells -O0
+n@d@b
+!s100 Mkb>Qdo^h<k74cAO3hDF80
+!s85 0
+!s101 -O0
+vDebouncer
+I2O`K1Dd;_SUV8leOQ?jf50
+V7m;Foc=O<?ZHL28CI=XDl3
+Z4 dC:\Users\Denisa\Desktop\EtherGate\COLOR SHOW\DB
+w1680443227
+8C:/Users/Denisa/Desktop/EtherGate/COLOR SHOW/DB/Debouncer.v
+FC:/Users/Denisa/Desktop/EtherGate/COLOR SHOW/DB/Debouncer.v
+L0 3
+R1
+r1
+31
+R2
+R3
+n@debouncer
+!s100 zgl@iLVUg]>7Yh=Vn6Nnd2
+!s85 0
+!s101 -O0
+vtb_DB
+!s100 FHQZk5Z;6a;fda;C5IU:10
+I`0oNjLBoS16mZC`X<Z3R_3
+VRg1U=9VH27?YK]>znzNX:3
+R4
+w1680443280
+8C:/Users/Denisa/Desktop/EtherGate/COLOR SHOW/DB/tb_DB.v
+FC:/Users/Denisa/Desktop/EtherGate/COLOR SHOW/DB/tb_DB.v
+L0 3
+R1
+r1
+!s85 0
+31
+!s101 -O0
+R2
+R3
+ntb_@d@b
