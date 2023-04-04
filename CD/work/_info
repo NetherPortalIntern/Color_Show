@@ -1,0 +1,112 @@
+m255
+K3
+13
+cModel Technology
+dC:\Users\Denisa\Desktop\EtherGate
+vClock_Divider
+I<8bgF_26VBnMh2gMbz@:l0
+V[LgAf5?j:2^D8k4OlQ2ll1
+Z0 dC:\Users\Denisa\Desktop\EtherGate\COLOR SHOW\CD
+w1680341666
+8C:/Users/Denisa/Desktop/EtherGate/COLOR SHOW/CD/Clock_Divider.v
+FC:/Users/Denisa/Desktop/EtherGate/COLOR SHOW/CD/Clock_Divider.v
+Z1 FCD_params.v
+Z2 FCLK_values.v
+L0 15
+Z3 OV;L;6.5b;42
+r1
+31
+Z4 !s102 -nocovercells
+Z5 o-work work -nocovercells -O0
+n@clock_@divider
+!s100 B;g=i?KUYmb35B`c9MPj=0
+!s85 0
+!s101 -O0
+vConfig
+InQ2L=Y7TGCE2YPf;TSSC91
+VhGTc4CBl0eFAbigO[]8zL1
+Z6 dC:\Users\Denisa\Desktop\EtherGate\COLOR SHOW\CD
+w1680439001
+8C:/Users/Denisa/Desktop/EtherGate/COLOR SHOW/CD/Config.v
+FC:/Users/Denisa/Desktop/EtherGate/COLOR SHOW/CD/Config.v
+R1
+FCS_params.v
+R2
+L0 13
+R3
+r1
+31
+R4
+R5
+n@config
+!s100 X0i?KmzTKC[C87oMXRzFU1
+!s85 0
+!s101 -O0
+vCounter
+I>I6_XLj7i2Rl_kkH76caI3
+Vn5kZgD>jKN>Z;G7W[MEgJ3
+R6
+w1680439983
+8C:/Users/Denisa/Desktop/EtherGate/COLOR SHOW/CD/Counter.v
+FC:/Users/Denisa/Desktop/EtherGate/COLOR SHOW/CD/Counter.v
+R1
+L0 10
+R3
+r1
+31
+R4
+R5
+n@counter
+!s100 RXi_PX0fGWl11jE4FBZV<2
+!s85 0
+!s101 -O0
+vtb_Clock_Divider
+IZ6CWiakK1LEDMYbOo8Gk>1
+V:4P4W8;8AB4BB=Vzdo4Bo1
+R6
+w1680341329
+8C:/Users/Denisa/Desktop/EtherGate/COLOR SHOW/CD/tb_Clock_Divider.v
+FC:/Users/Denisa/Desktop/EtherGate/COLOR SHOW/CD/tb_Clock_Divider.v
+L0 3
+R3
+r1
+31
+R4
+R5
+ntb_@clock_@divider
+!s100 ?nLDcOVVKObk=i]9J_JSD1
+!s85 0
+!s101 -O0
+vtb_config
+I0bL_aYdYLiDlV2mCG>mPR0
+VFoLHLP3B@ZKGF8bj8GEb50
+R6
+w1679422498
+8C:/Users/Denisa/Desktop/EtherGate/COLOR SHOW/CD/tb_Config.v
+FC:/Users/Denisa/Desktop/EtherGate/COLOR SHOW/CD/tb_Config.v
+L0 3
+R3
+r1
+31
+R4
+R5
+!s100 :]T`;F2bI`oHFYPMmT7ZQ1
+!s85 0
+!s101 -O0
+vtb_Counter
+!s100 Ph^XW]b>>K5h6j6MSP`Y?0
+I[@3OX9JR0C:JS7L]JEZ:11
+V5Lnk6f=]hLmlK0AAzXdRA2
+R6
+w1679417752
+8C:/Users/Denisa/Desktop/EtherGate/COLOR SHOW/CD/tb_Counter.v
+FC:/Users/Denisa/Desktop/EtherGate/COLOR SHOW/CD/tb_Counter.v
+L0 3
+R3
+r1
+!s85 0
+31
+!s101 -O0
+R4
+R5
+ntb_@counter

@@ -1,0 +1,43 @@
+{C:/Users/Denisa/Desktop/EtherGate/COLOR SHOW/CD/Config.v} {1 {vlog -work work -nocovercells {C:/Users/Denisa/Desktop/EtherGate/COLOR SHOW/CD/Config.v}
+Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
+-- Compiling module Config
+
+Top level modules:
+	Config
+
+} {} {}} {C:/Users/Denisa/Desktop/EtherGate/COLOR SHOW/CD/Clock_Divider.v} {1 {vlog -work work -nocovercells {C:/Users/Denisa/Desktop/EtherGate/COLOR SHOW/CD/Clock_Divider.v}
+Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
+-- Compiling module Clock_Divider
+
+Top level modules:
+	Clock_Divider
+
+} {} {}} {C:/Users/Denisa/Desktop/EtherGate/COLOR SHOW/CD/tb_Clock_Divider.v} {1 {vlog -work work -nocovercells {C:/Users/Denisa/Desktop/EtherGate/COLOR SHOW/CD/tb_Clock_Divider.v}
+Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
+-- Compiling module tb_Clock_Divider
+
+Top level modules:
+	tb_Clock_Divider
+
+} {} {}} {C:/Users/Denisa/Desktop/EtherGate/COLOR SHOW/CD/tb_Config.v} {1 {vlog -work work -nocovercells {C:/Users/Denisa/Desktop/EtherGate/COLOR SHOW/CD/tb_Config.v}
+Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
+-- Compiling module tb_config
+
+Top level modules:
+	tb_config
+
+} {} {}} {C:/Users/Denisa/Desktop/EtherGate/COLOR SHOW/CD/Counter.v} {1 {vlog -work work -nocovercells {C:/Users/Denisa/Desktop/EtherGate/COLOR SHOW/CD/Counter.v}
+Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
+-- Compiling module Counter
+
+Top level modules:
+	Counter
+
+} {} {}} {C:/Users/Denisa/Desktop/EtherGate/COLOR SHOW/CD/tb_Counter.v} {1 {vlog -work work -nocovercells {C:/Users/Denisa/Desktop/EtherGate/COLOR SHOW/CD/tb_Counter.v}
+Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
+-- Compiling module tb_Counter
+
+Top level modules:
+	tb_Counter
+
+} {} {}}
