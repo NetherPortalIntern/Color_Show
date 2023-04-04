@@ -1,0 +1,15 @@
+{C:/Users/Denisa/Desktop/EtherGate/COLOR SHOW/DB/tb_DB.v} {1 {vlog -work work -nocovercells {C:/Users/Denisa/Desktop/EtherGate/COLOR SHOW/DB/tb_DB.v}
+Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
+-- Compiling module tb_DB
+
+Top level modules:
+	tb_DB
+
+} {} {}} {C:/Users/Denisa/Desktop/EtherGate/COLOR SHOW/DB/Debouncer.v} {1 {vlog -work work -nocovercells {C:/Users/Denisa/Desktop/EtherGate/COLOR SHOW/DB/Debouncer.v}
+Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
+-- Compiling module Debouncer
+
+Top level modules:
+	Debouncer
+
+} {} {}}
