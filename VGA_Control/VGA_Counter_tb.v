@@ -1,7 +1,7 @@
-`timescale 1 ns/10 ps 
+`timescale 1 ns/1 ns
 //The testbench for the Config module.
-module Counter_tb
-#(`include "Width_Parameters.v");
+module VGA_Counter_tb
+#(`include "VGA_Width_Parameters.v");
 
 	parameter CLK_F     	 = 2;
 	parameter RST_DURATION 	 = 4;
@@ -15,7 +15,7 @@ module Counter_tb
 	wire  [REZ_MAX_WIDTH-1:0] 	CounterP;
 	
 	
-	Counter counter(.Clk(Clk),
+	VGA_Counter counter(.Clk(Clk),
 					.Rst(Rst),
 					.Sync_pulse(Sync_pulse),
 					.Count_max(Count_max), 

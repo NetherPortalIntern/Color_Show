@@ -1,7 +1,7 @@
-`timescale 1 ns/10 ps 
+`timescale 1 ns/1 ns
 //The testbench for the Config module.
 module Config_tb
-	#(`include "Width_Parameters.v");
+	#(`include "VGA_Width_Parameters.v");
 	
 	parameter CLK_F		 	= 2;
 	parameter RST_DURATION 	= 4;
@@ -55,7 +55,7 @@ module Config_tb
 	initial
 	begin
 		//case for default config
-		Addr = 2'b10;
+		Addr = 4'b1011;
 		Data = 2'b00;
 		Valid = 1;
 		#(CLK_F*2);
@@ -63,7 +63,7 @@ module Config_tb
 
 		#WAIT
 		//case for 10x86 config		
-		Addr = 2'b10;
+		Addr = 4'b1010;
 		Data = 2'b10;
 		Valid = 1;
 		#(CLK_F*2)
@@ -71,7 +71,7 @@ module Config_tb
 		
 		#WAIT
 		//invalid, expected to do nothing		
-		Addr = 2'b10;
+		Addr = 4'b1011;
 		Data = 2'b00;
 		Valid = 0;
 		#(CLK_F*2);
@@ -79,7 +79,7 @@ module Config_tb
 		
 		#WAIT
 		//not the expected addres, expected to do nothing		
-		Addr = 2'b00;
+		Addr = 4'b1010;
 		Data = 2'b00;
 		Valid = 1;
 		#(CLK_F*2);
@@ -93,7 +93,7 @@ module Config_tb
 		
 		#WAIT
 		//case for 8x6 config		
-		Addr = 2'b10;
+		Addr = 4'b1011;
 		Data = 2'b01;
 		Valid = 1;
 		#(CLK_F*2);
