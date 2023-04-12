@@ -1,4 +1,4 @@
-`timescale 1 ns/10 ps  
+`timescale 1 ns/1 ns 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 // Module Name:   Config  
 //
@@ -18,10 +18,10 @@
 `define R10X7 2'b10
 `define ACTIVE 1'b1
 
-module Config
-	#(`include "Width_Parameters.v",
-	  `include "ParametersFin.v",
-	  `include "Addr_Parameters.v")
+module VGA_Config
+	#(`include "VGA_Width_Parameters.v",
+	  `include "VGA_Parameters.v",
+	  `include "VGA_Addr_Parameters.v")
 	(input Clk,
 	input Rst,
 	input Valid,

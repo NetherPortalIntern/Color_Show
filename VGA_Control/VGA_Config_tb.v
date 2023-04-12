@@ -1,7 +1,7 @@
-`timescale 1 ns/10 ps 
+`timescale 1 ns/1 ns
 //The testbench for the Config module.
 module Config_tb
-	#(`include "Width_Parameters.v");
+	#(`include "VGA_Width_Parameters.v");
 	
 	parameter CLK_F		 	= 2;
 	parameter RST_DURATION 	= 4;

@@ -1,9 +1,7 @@
-`timescale 1 ns/10 ps 
+`timescale 1 ns/1 ns 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-// Module Name:   Config  
-// 	This module provides parameters for the other modules that forms the VGA_Control module.
-//When the configuration bus has a new configuration for the VGA_Control, the registers containing information for 
-//a specific resolution are changed according to https://web.mit.edu/6.111/www/s2004/NEWKIT/vga.shtml, 60Hz ones. 
+// Module Name:   Conter  
+// 	This module provides the sincrpnization signals as well as internal counter for the modules 
 //
 //
 //	Expected Counter_sync output  ___+-------------+___+-------------+___+-------------+___+-------------+___...,
@@ -11,8 +9,8 @@
 //Count_max value.
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-module Counter
-	#(`include "Width_Parameters.v")
+module VGA_Counter
+	#(`include "VGA_Width_Parameters.v")
 	(input Clk,
 	input Rst,
 	input [PULSE_WIDTH-1:0] Sync_pulse,

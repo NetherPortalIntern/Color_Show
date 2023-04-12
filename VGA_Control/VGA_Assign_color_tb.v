@@ -1,8 +1,8 @@
-`timescale 1 ns/10 ps 
+`timescale 1 ns/1 ns
 //The teshbench for the Assign_color module
 
-module Assign_color_tb
-#(`include "Width_Parameters.v");
+module VGA_Assign_color_tb
+#(`include "VGA_Width_Parameters.v");
 
 	parameter CLK_F     	 = 2;
 	parameter RST_DURATION 	 = 4;
@@ -22,7 +22,7 @@ module Assign_color_tb
 	wire [COLOR_WIDTH-1:0] 	Blue;
 	
 	
-	Assign_color assgncolor(.Clk(Clk),
+	VGA_Assign_color assgncolor(.Clk(Clk),
 							.Rst(Rst),
 							.Data(Data),
 							.Count_h(Count_h),
